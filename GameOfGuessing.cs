@@ -29,6 +29,7 @@ void multipleChances(int numberOfChances, int secretNumber)
 {
     for (int i = 0; i < numberOfChances; i++)
     {
+        Console.WriteLine($"Guess number {i + 1}");
         int userGuess = GetUserGuess();
         isSecretNumber(userGuess, secretNumber);
 
@@ -36,9 +37,14 @@ void multipleChances(int numberOfChances, int secretNumber)
         {
             break;
         }
+
+        if (i == numberOfChances - 1)
+        {
+            Console.WriteLine("Sorry ran out of guesses!");
+        }
     }
 
-    Console.WriteLine("Sorry ran out of guesses!");
+
 }
 
 void isSecretNumber(int userGuess, int secretNumber)
