@@ -6,7 +6,17 @@ void Main()
 {
     Console.WriteLine("Guess the Secret Number!");
     int userGuess = GetUserGuess();
-    UserDisplaysAnswer(userGuess);
+
+    int secretNumber = 42;
+
+    if (userGuess == secretNumber)
+    {
+        Console.WriteLine("You guessed the secret number!");
+    }
+    else
+    {
+        Console.WriteLine("You guessed incorrectly");
+    }
 }
 
 int GetUserGuess()
