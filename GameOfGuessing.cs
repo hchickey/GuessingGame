@@ -33,6 +33,15 @@ void multipleChances(int numberOfChances, int secretNumber)
         int userGuess = GetUserGuess();
         isSecretNumber(userGuess, secretNumber);
 
+        if (secretNumber < userGuess)
+        {
+            Console.WriteLine("Your guess was too high");
+        }
+        else if (secretNumber > userGuess)
+        {
+            Console.WriteLine("Your guess was too low");
+        }
+
         if (secretNumber == userGuess)
         {
             break;
