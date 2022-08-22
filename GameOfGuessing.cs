@@ -6,15 +6,15 @@ void Main()
 {
     Console.WriteLine("Guess the Secret Number!");
 
-    int secretNumber = 42;
-
+    Random num = new Random();
+    int secretNumber = num.Next(1, 100);
     multipleChances(4, secretNumber);
 
 }
 
 int GetUserGuess()
 {
-    Console.Write("Enter a number: ");
+    Console.Write("Enter a number (1-100): ");
     int userGuess = int.Parse(Console.ReadLine());
 
     return userGuess;
@@ -29,7 +29,7 @@ void multipleChances(int numberOfChances, int secretNumber)
 {
     for (int i = 0; i < numberOfChances; i++)
     {
-        Console.WriteLine($"Guess number {i + 1}");
+        Console.WriteLine($"You have {numberOfChances - i} guesses left");
         int userGuess = GetUserGuess();
         isSecretNumber(userGuess, secretNumber);
 
@@ -40,7 +40,7 @@ void multipleChances(int numberOfChances, int secretNumber)
 
         if (i == numberOfChances - 1)
         {
-            Console.WriteLine("Sorry ran out of guesses!");
+            Console.WriteLine($"Sorry ran out of guesses! The answer is {secretNumber}");
         }
     }
 
