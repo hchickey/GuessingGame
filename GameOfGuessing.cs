@@ -5,10 +5,11 @@ Main();
 void Main()
 {
     Console.WriteLine("Guess the Secret Number!");
+    int numberOfChances = getDifficulty();
 
     Random num = new Random();
     int secretNumber = num.Next(1, 100);
-    multipleChances(4, secretNumber);
+    multipleChances(numberOfChances, secretNumber);
 
 }
 
@@ -36,10 +37,12 @@ void multipleChances(int numberOfChances, int secretNumber)
         if (secretNumber < userGuess)
         {
             Console.WriteLine("Your guess was too high");
+            Console.WriteLine("");
         }
         else if (secretNumber > userGuess)
         {
             Console.WriteLine("Your guess was too low");
+            Console.WriteLine("");
         }
 
         if (secretNumber == userGuess)
@@ -54,6 +57,30 @@ void multipleChances(int numberOfChances, int secretNumber)
     }
 
 
+}
+
+int getDifficulty()
+{
+    Console.WriteLine("Choose your difficulty (Easy-1, Medium-2, Hard-3): ");
+    int difficulty = int.Parse(Console.ReadLine());
+
+    if (difficulty == 1)
+    {
+        return 8;
+    }
+    else if (difficulty == 2)
+    {
+        return 6;
+    }
+    else if (difficulty == 3)
+    {
+        return 4;
+    }
+    else
+    {
+        Console.WriteLine("Not a valid input");
+        return 0;
+    }
 }
 
 void isSecretNumber(int userGuess, int secretNumber)
