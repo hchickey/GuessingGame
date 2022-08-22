@@ -5,18 +5,11 @@ Main();
 void Main()
 {
     Console.WriteLine("Guess the Secret Number!");
-    int userGuess = GetUserGuess();
 
     int secretNumber = 42;
 
-    if (userGuess == secretNumber)
-    {
-        Console.WriteLine("You guessed the secret number!");
-    }
-    else
-    {
-        Console.WriteLine("You guessed incorrectly");
-    }
+    multipleChances(4, secretNumber);
+
 }
 
 int GetUserGuess()
@@ -27,7 +20,36 @@ int GetUserGuess()
     return userGuess;
 }
 
-void UserDisplaysAnswer(int userGuess)
+// void UserDisplaysAnswer(int userGuess)
+// {
+//     Console.WriteLine($"You guessed {userGuess}");
+// }
+
+void multipleChances(int numberOfChances, int secretNumber)
 {
-    Console.WriteLine($"You guessed {userGuess}");
+    for (int i = 0; i < numberOfChances; i++)
+    {
+        int userGuess = GetUserGuess();
+        isSecretNumber(userGuess, secretNumber);
+
+        if (secretNumber == userGuess)
+        {
+            break;
+        }
+    }
+
+    Console.WriteLine("Sorry ran out of guesses!");
+}
+
+void isSecretNumber(int userGuess, int secretNumber)
+{
+
+    if (userGuess == secretNumber)
+    {
+        Console.WriteLine("You guessed the secret number!");
+    }
+    else
+    {
+        Console.WriteLine("You guessed incorrectly");
+    }
 }
